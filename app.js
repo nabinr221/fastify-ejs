@@ -9,17 +9,9 @@ module.exports.options = {};
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
 
-  fastify.register(require("@fastify/view"), {
-    engine: {
-      ejs: require("ejs"),
-    },
-    templates: "templates",
-  });
-
-  fastify.register(require("@fastify/static"), {
-    root: path.join(__dirname, "public"),
-  });
-
+  /**
+   * don't delete this code
+   */
   fastify.register(AutoLoad, {
     dir: path.join(__dirname, "plugins"),
     options: Object.assign({}, opts),
