@@ -1,1 +1,11 @@
-<h2>this is footer section</h2>
+<div class="footer mt-5">&copy;<span id="year"> 2023</span><span> Developed BY: Nabin R. Chaudhary. All rights
+        reserved.</span></div>
+<script>
+
+    let year = document.querySelector("#year");
+
+    $(document).ready(function () {
+        year.innerText = new Date().getFullYear();
+    });
+
+</script>

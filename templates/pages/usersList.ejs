@@ -1,0 +1,77 @@
+<script>
+    const handleDelete = async (id) => {
+        const response = await fetch(`/users/${id}`, {
+            method: "DELETE",
+        });
+        console.log(response);
+        const data = await response.json();
+        if (data) {
+            window.location.href = "/users";
+        } else {
+            alert("Something went wrong");
+        }
+    };
+
+
+</script>
+
+
+<div class="container-fluid users-section">
+    <div class="users-area">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Gender </th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Contact Number </th>
+                    <th scope="col">Actions </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% usersData.map((item,index)=> { %>
+                    <tr>
+                        <th scope="row">
+                            <%= index + 1 %>
+                        </th>
+                        <td>
+                            <%= item.name %>
+                        </td>
+                        <td>
+                            <%= item.username %>
+                        </td>
+                        <td>
+                            <%= item.gender %>
+                        </td>
+                        <td>
+                            <%= item.address %>
+                        </td>
+                        <td>
+                            <%= item.contact_number %>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><a
+                                    href="/users/<%=item.id %>">Edit</a> </button>
+                            <button class=" btn btn-primary" onclick="handleDelete('<%= item.id %>')">Delete</button>
+                        </td>
+                    </tr>
+                    <% }) %>
+
+            </tbody>
+        </table>
+
+        <div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
