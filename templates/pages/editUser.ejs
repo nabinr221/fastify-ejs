@@ -1,0 +1,86 @@
+<div class="signup-section">
+    <div class="signup-area border p-5">
+        <h3 class="pb-3">Edit</h3>
+        <form method="post" action="/users/edit/<%= userData.id%>" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="name" value="<%= userData.name%>">
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">Username</label>
+                    <input type="email" name="username" class="form-control" value="<%= userData.username%>"
+                        placeholder="Username or email" required>
+                </div>
+                <!-- <div class="col">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Password " required>
+                </div> -->
+            </div>
+
+            <div class="">
+                <span class="me-3">Gender:</span>
+                <div class="my-2 d-flex">
+
+                    <% if(userData.gender==="male" ){ %>
+                        <div class="form-check me-3">
+                            <input class="form-check-input" type="radio" name="gender" value="male" checked>
+                            <label class="form-check-label"> Male </label>
+                        </div>
+                        <div class="form-check me-3">
+                            <input class="form-check-input" type="radio" name="gender" value="female">
+                            <label class="form-check-label"> Female </label>
+                        </div>
+                        <div class="form-check me-3">
+                            <input class="form-check-input" type="radio" name="gender" value="others">
+                            <label class="form-check-label"> Others </label>
+                        </div>
+
+                        <% } else if ( userData.gender==="female" ){ %>
+                            <div class="form-check me-3">
+                                <input class="form-check-input" type="radio" name="gender" value="male">
+                                <label class="form-check-label"> Male </label>
+                            </div>
+                            <div class="form-check me-3">
+                                <input class="form-check-input" type="radio" name="gender" value="female" checked>
+                                <label class="form-check-label"> Female </label>
+                            </div>
+                            <div class="form-check me-3">
+                                <input class="form-check-input" type="radio" name="gender" value="others">
+                                <label class="form-check-label"> Others </label>
+                            </div>
+
+                            <% } else { %>
+                                <div class="form-check me-3">
+                                    <input class="form-check-input" type="radio" name="gender" value="male">
+                                    <label class="form-check-label"> Male </label>
+                                </div>
+                                <div class="form-check me-3">
+                                    <input class="form-check-input" type="radio" name="gender" value="female">
+                                    <label class="form-check-label"> Female </label>
+                                </div>
+                                <div class="form-check me-3">
+                                    <input class="form-check-input" type="radio" name="gender" value="others" checked>
+                                    <label class="form-check-label"> Others </label>
+                                </div>
+                                <% } %>
+
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Address</label>
+                <input type="text" name="address" class="form-control" value="<%= userData.address%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="text" name="contact_number" class="form-control" value="<%= userData.contact_number%>">
+            </div>
+            <!-- <div class="mb-3">
+                <label for="formFile" class="form-label">Profile Upload</label>
+                <input class="form-control" name="profile" type="file" id="formFile">
+            </div> -->
+            <button class="btn btn-primary w-50">Submit</button>
+        </form>
+    </div>
+</div>

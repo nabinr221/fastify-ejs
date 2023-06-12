@@ -1,8 +1,66 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(12, 85, 85);
+  /* background-color: rgb(12, 85, 85); */
 }
-h1 {
-  color: rgb(228, 6, 6);
+.signup-section {
+  width: 50%;
+  margin: 3rem auto;
+}
+a,a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.signup-section .signup-area {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.login-section {
+  margin: 3rem auto;
+  display: flex;
+  justify-content: center;
+}
+.login-section .login-area {
+  width: 30%;
+}
+.users-section {
+  width: 77%;
+  margin: 3rem auto;
+}
+
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
+
+.progress {
+  height: 10px;
+}
+.footer {
+  /* position: absolute; */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: purple;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
 }
