@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 50%;
+        margin: 0 auto;
+
+    }
+
+    .container .greeting {
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    .container .message {
+        margin-top: 1.5rem;
+        font-size: 1.1rem;
+        color: #095656;
+    }
+
+    .container .message p span {
+        font-weight: 600;
+    }
+
+    .container .regards {
+        margin-top: 2rem;
+        font-size: 1rem;
+        text-transform: capitalize;
+    }
+
+    .container .regards p.regards-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="greeting">
+            <h3>Dear nabin r chy , </h3>
+        </div>
+        <div class="message">
+            <p> We are thrilled to inform you that your account <span>
+                    <%= username %>
+                </span> has been successfully Updated in our system.
+            </p>
+
+            <p> Thank you for choosing our platform. We are excited to have you on board, and we look forward to serving
+                you
+                and meeting your expectations. If you have any questions or need further information, please don't
+                hesitate
+                to contact us.
+            </p>
+        </div>
+        <div class="regards">
+            <p class="regards-title"> Best regards,</p>
+            <p> Optimum Futurist </p>
+            <p>Software Engineering Intern</p>
+
+        </div>
+    </div>
+</body>
+
+</html>

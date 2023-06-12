@@ -1,4 +1,10 @@
 const bcrypt = require("bcrypt");
+const { Op } = require("sequelize");
+const fs = require("fs/promises");
+const { fileURLToPath } = require("url");
+const path = require("path");
+const ejs = require("ejs");
+
 // const saltRounds = 10;
 
 /**
@@ -18,22 +24,24 @@ const singupHandler = async (request, reply) => {
     if (!user) {
       const userData = await users.create(request.body);
       if (userData) {
-        const info = await mailer.sendMail({
-          from: "nabinr221@gmail.com", // sender address
-          // to: request.body.username, // list of receivers
-          to: "nabinrchy@gmail.com",
-          subject: "Signup", // Subject line
-          // text: "this is testing msg", // plain text body
-          html: `
-          <p>Hi ${request.body.name} weolcome to My World,</p>
-          <p>Thank you for signing up  </p>
-          <p>Regards,</p>
-          <p>Nabin</p>
-          `, // html body
+        const templatePath = path.join(
+          __dirname,
+          "../../templates/emails/emailTemplate.ejs"
+        );
+        const template = await fs.readFile(templatePath, "utf-8");
+        const emailTemplate = ejs.render(template, {
+          receiver: userData.name,
+          email: userData.username,
+          password: request.body.password,
+          accountId: request.body.id,
         });
 
-        console.log("Message sent: %s", info);
-
+        await mailer.sendMail({
+          from: "nabinr221@gmail.com", // sender address
+          to: request.body.username, // list of receivers
+          subject: "Account Creation Successful!", // Subject line
+          html: emailTemplate,
+        });
         reply.redirect("/users");
       } else {
         reply.code(400).send({ error: "something went worng !!! " });
