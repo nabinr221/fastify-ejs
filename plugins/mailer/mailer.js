@@ -10,12 +10,7 @@ const mailer = async (fastify, opts) => {
       auth: {
         user: "martine.bahringer58@ethereal.email",
         pass: "HbMHUWSDemrcRM6hVb",
-        // service: "gmail",
-        // host: "gsmtp.gmail.com",
-        // port: 587,
-        // auth: {
-        //   user: "cnabinrgmail.com",
-        //   pass: "N@bbu@ktm",
+       
       },
     },
   });
